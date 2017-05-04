@@ -1,0 +1,44 @@
+<!-- Ejemplo (^) -->
+table>thead>tr>th*3^^tbody>tr>td*3^^tfoot>tr>td*3
+
+<!-- Resultado -->
+
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tfoot>
+</table>
+
+<!-- Ejemplo -->
+
+section.primera>article>p^^section.segunda>article>ps>span^^^section.tercera
+<!-- Resultado -->
+<section class="primera">
+	<article>
+		<p></p>
+	</article>
+</section>
+<section class="segunda">
+	<article>
+		<ps><span></span></ps>
+	</article>
+</section>
+<section class="tercera"></section>
