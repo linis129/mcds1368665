@@ -5,10 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>
+                        :::. ALMACEN .::
+         </title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+         <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
@@ -69,10 +72,18 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Inicio</a>
-                    @else
-                        <a href="{{ url('/login') }}">Ingresar</a>
-                        <a href="{{ url('/register') }}">Registrarse</a>
+                        <a href="{{ url('/home') }}">
+                    Inicio
+                </a>
+                @else
+                <a href="{{ url('/login') }}">
+                    <i aria-hidden="true" class="fa fa-user fa-2x ">
+                    </i>
+                </a>
+                <a href="{{ url('/register') }}">
+                    <i aria-hidden="true" class="fa fa-user-plus fa-2x ">
+                    </i>
+                </a>
                     @endif
                 </div>
             @endif
@@ -82,13 +93,7 @@
                     ALMACEN
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                
             </div>
         </div>
     </body>

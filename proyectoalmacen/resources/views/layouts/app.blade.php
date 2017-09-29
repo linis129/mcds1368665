@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,19 +16,29 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-inverse bg-inverse">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+                      <!-- Inicio a pagina principal-->
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <i aria-hidden="true" class="fa fa-home fa-2x ">
+                            </i>
+                        </a>
+                
                     @if(Auth::check() && Auth::user()->rol == "Administrador")
+                  
                     <a class="navbar-brand opt-nav" href="{{ url('gestion_usuarios') }}"> Gestion Usuarios</a>
                     <a class="navbar-brand opt-nav" href="{{ url('gestion_programas') }}"> Gestion Programas</a>
                     <a class="navbar-brand opt-nav" href="{{ url('gestion_horario') }}"> Gestion Horario</a>
                     <a class="navbar-brand opt-nav" href="{{ url('gestion_ambiente') }}"> Gestion Ambiente Formacion</a>
                     <a class="navbar-brand opt-nav" href="{{ url('gestion_instructor') }}"> Gestion Instructor</a>
+                  
                     @endif
                 </div>
 

@@ -45,8 +45,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('codigo', function() {
-// 	return view('codigo');
-// });
+Route::get('codigo', function() {
+	return view('codigo');
+});
 
-// Route::post('codigo', 'UsuarioController@cargar');
+Route::post('codigo', 'instructorController@cargar');

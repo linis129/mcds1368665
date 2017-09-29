@@ -77,9 +77,10 @@ class InstructorController extends Controller
     $inst->save();
       return redirect('gestion_instructor')->with('message','Instructor Modificada Con Exito!');
   }
-  public function cargar(Request $request) {
 
-    $usr = User::where('documento', '=', $request->get('documento'))->get();
+    public function cargar(Request $request) {
+
+    $usr = Instructor::where('documento', '=', $request->get('documento'))->get();
 
     dd($usr);
 
