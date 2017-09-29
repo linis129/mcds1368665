@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="row">
-    <!-- Box Left -->
+    <!-- Box Left  prueba-->
     <div class="col-lg-1"></div>
 
     <!-- Box Center -->
