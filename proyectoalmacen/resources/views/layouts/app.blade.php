@@ -26,11 +26,11 @@
             <div class="container">
                 <div class="navbar-header">
                       <!-- Inicio a pagina principal-->
-                        <a class="navbar-brand" href="{{ url('/') }}">
+                        <a class="navbar-brand" href="{{ url('home') }}">
                             <i aria-hidden="true" class="fa fa-home fa-2x ">
                             </i>
                         </a>
-                
+
                     @if(Auth::check() && Auth::user()->rol == "Administrador")
                   
                     <a class="navbar-brand opt-nav" href="{{ url('gestion_usuarios') }}"> Gestion Usuarios</a>
