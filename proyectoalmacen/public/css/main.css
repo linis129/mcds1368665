@@ -1,0 +1,12 @@
+a.opt-nav{
+  /*border: 1px solid red !important;*/
+  font-size: 1.4rem;
+}
+
+.container, .container-fluid{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+#modal-crear{
+  margin-top: 2%;
+}
