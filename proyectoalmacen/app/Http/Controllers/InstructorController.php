@@ -82,7 +82,9 @@ class InstructorController extends Controller
 
     $usr = Instructor::where('documento', '=', $request->get('documento'))->get();
 
-    dd($usr);
+    //dd($usr);
+
+    return view('admin.instructor.consulta')->with('usr', $usr);
 
   }
 
