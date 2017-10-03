@@ -25,7 +25,7 @@ class AmbienteRequest extends FormRequest
     {
         return [
             'nombre' => 'required',
-            'codigo' => 'required',
+            // 'codigo' => 'required',
             'estado' => 'required',
         ];
     }

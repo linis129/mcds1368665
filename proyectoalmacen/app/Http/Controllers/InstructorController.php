@@ -7,7 +7,7 @@ use App\Instructor;
 use App\Ambiente;
 use App\Programa;
 use App\Horario;
-use App\User;
+// use App\User;
 use App\Http\Requests\InstructorRequest;
 
 class InstructorController extends Controller
@@ -15,23 +15,23 @@ class InstructorController extends Controller
     public function index(){
 
     $query    = Instructor::all();
-    $usuario  = User::where('rol', '=', 'Instructor')->get();
+    // $usuario  = User::where('rol', '=', 'Instructor')->get();
     $ambiente = Ambiente::where('estado', '=', 'Disponible')->get();
     $programa = Programa::all();
     $horario  = Horario::all();
     return view('admin.instructor.index')->with('query', $query)
                                          ->with('ambiente', $ambiente)
                                          ->with('programa', $programa)
-                                         ->with('horario', $horario)
-                                         ->with('usuario', $usuario);
+                                         ->with('horario', $horario);
   }
   public function store(InstructorRequest $request)
   {
     $inst = new Instructor();
-	  $inst->programa_id = $request->get('programa_id');
+	  $inst->documento = $request->get('documento');
+    $inst->programa_id = $request->get('programa_id');
     $inst->horario_id = $request->get('horario_id');
     $inst->ambiente_id = $request->get('ambiente_id');
-    $inst->user_id = $request->get('user_id');
+    $inst->nombre = $request->get('nombre');
     $inst->save();
     return redirect('gestion_instructor')->with('message','Instructor Registrado Con Exito!');
   }
@@ -48,20 +48,20 @@ class InstructorController extends Controller
   {
       
   }
-  public function editarAjax($id, $IdProg, $IdHora, $IdAmbi, $IdUsu){
+  public function editarAjax($id, $IdProg, $IdHora, $IdAmbi){
 
     $editar = Instructor::where('id', '=', $id)->get();
     $pro = Programa::where('id','!=', $IdProg)->get();
     $hor = Horario::where('id','!=', $IdHora)->get();
     $amb = Ambiente::where('id','!=', $IdAmbi)->get();
-    $use = User::where('id','!=', $IdUsu)->get();
+    // $use = User::where('id','!=', $IdUsu)->get();
 
 
     return view('admin.instructor.editarAjax')->with('editar', $editar)
                                               ->with('pro', $pro)
                                               ->with('hor', $hor)
-                                              ->with('amb', $amb)
-                                              ->with('use', $use);
+                                              ->with('amb', $amb);
+                                              // ->with('use', $use);
 
 
 
@@ -70,10 +70,11 @@ class InstructorController extends Controller
   public function update(InstructorRequest $request, $id)
   {
     $inst = Instructor::find($id);
-   $inst->programa_id = $request->get('programa_id');
+    $inst->documento = $request->get('documento');
+    $inst->programa_id = $request->get('programa_id');
     $inst->horario_id = $request->get('horario_id');
-    $inst->ambiente_formacion_id = $request->get('ambiente_formacion_id');
-    $inst->user_id = $request->get('user_id');
+    $inst->ambiente_id = $request->get('ambiente_id');
+    $inst->nombre = $request->get('nombre');
     $inst->save();
       return redirect('gestion_instructor')->with('message','Instructor Modificada Con Exito!');
   }

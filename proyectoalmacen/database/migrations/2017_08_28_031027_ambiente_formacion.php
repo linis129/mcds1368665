@@ -17,7 +17,7 @@ class AmbienteFormacion extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('estado');
-            $table->string('codigo');
+            // $table->string('codigo');
         });
     }
 

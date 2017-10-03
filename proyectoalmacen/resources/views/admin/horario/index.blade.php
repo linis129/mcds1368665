@@ -35,7 +35,7 @@
           <thead>
             <tr>
               <th class="text-center">Id</th> 
-              <th class="text-center">Codigo</th>
+              <!-- <th class="text-center">Codigo</th> -->
               <th class="text-center">Hora Inicial</th>
               <th class="text-center">Hora Final</th>
               <th class="text-center">Fecha Inicial</th>
@@ -47,7 +47,7 @@
             @foreach($query as $row)
             <tr>
               <td class="text-center">{{ $row->id }}</td>
-              <td class="text-center">{{ $row->codigo }}</td>
+              <!-- <td class="text-center">{{ $row->codigo }}</td> -->
               <td class="text-center">{{ $row->hora_inicial }}</td>
               <td class="text-center">{{ $row->hora_final }}</td>
               <td class="text-center">{{ $row->fecha_inicial }}</td>
@@ -86,9 +86,9 @@
             <h4 class="modal-title">Registrar Horario</h4>
           </div>
           <div class="modal-body">
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input type="text" class="form-control" name="codigo" placeholder="Digite Codigo">
-              </div>
+              </div> -->
               <div class="form-group">
                   <input type="time" class="form-control" name="hora_inicial" placeholder="Seleccione Hora Inicial">
               </div>

@@ -79,11 +79,12 @@
                 <a href="{{ url('/login') }}">
                     <i aria-hidden="true" class="fa fa-user fa-2x ">
                     </i>
+                    Ingresar
                 </a>
-                <a href="{{ url('/register') }}">
+               <!--  <a href="{{ url('/register') }}">
                     <i aria-hidden="true" class="fa fa-user-plus fa-2x ">
                     </i>
-                </a>
+                </a> -->
                     @endif
                 </div>
             @endif

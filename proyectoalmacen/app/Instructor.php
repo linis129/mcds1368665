@@ -15,7 +15,7 @@ class Instructor extends Model
 	public $timestamps = false;
 
     protected $fillable = [
-        'programa_id',  'ambiente_id', 'horario_id', 'user_id'
+        'programa_id',  'ambiente_id', 'horario_id', 'nombre', 'documento'
     ];
 
     public function programa(){
@@ -29,8 +29,8 @@ class Instructor extends Model
         return $this->belongsTo('App\Horario', 'horario_id');
     }
     
-      public function user(){
-        return $this->belongsTo('App\User', 'user_id');
-    }
+    //   public function user(){
+    //     return $this->belongsTo('App\User', 'user_id');
+    // }
         
 }

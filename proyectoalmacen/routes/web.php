@@ -25,6 +25,10 @@ Route::post('codigo', 'UsuarioController@cargar');
 Route::resource('gestion_usuarios', 'UsuarioController');
 Route::get('/gestion_usuarios/editarAjax/{UUID}', 'UsuarioController@editarAjax');
 
+// Almacen
+Route::resource('consulta_ambiente', 'AlmacenController');
+Route::get('consulta_instructor', 'AlmacenController@consultaInstructor');
+
 // Programas
 Route::resource('gestion_programas', 'ProgramaController');
 Route::get('gestion_programas/editarAjax/{UUID}', 'ProgramaController@editarAjax');
@@ -39,7 +43,7 @@ Route::get('gestion_ambiente/editarAjax/{UUID}', 'AmbienteController@editarAjax'
 
 // Instructor
 Route::resource('gestion_instructor', 'InstructorController');
-Route::get('gestion_instructor/editarAjax/{UUID}/{IdProg}/{IdHora}/{IdAmbi}/{IdUsu}', 'InstructorController@editarAjax');
+Route::get('gestion_instructor/editarAjax/{UUID}/{IdProg}/{IdHora}/{IdAmbi}', 'InstructorController@editarAjax');
 
 Auth::routes();
 

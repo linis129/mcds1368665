@@ -4,6 +4,9 @@
 
     <input type="hidden" name="_method" value="PUT">
     <div class="form-group">
+        <input type="text" disabled="disabled" value="{{ $edit->documento }}" name="documento" class="form-control">
+    </div>
+    <div class="form-group">
         <select name="programa_id" class="form-control">
             <option value="">{{ $edit->programa->nombre  }}</option>
             @foreach($pro as $prog)
@@ -28,11 +31,11 @@
         </select>
     </div>
   <div class="form-group">
-      <select name="user_id" class="form-control">
-          <option value="">{{ $edit->user->name}}</option>
-          @foreach($use as $usu)
-          <option value="{{ $usu->id }}">{{ $usu->name}}</option>
-          @endforeach
+      <select name="nombre" class="form-control">
+        <option value="Yaneth Mejia Rendon">Yaneth Mejia Rendon</option>
+        <option value="Oscar Fernando">Oscar Fernando</option>
+        <option value="Pepito Perez">Pepito Perez"</option>
+        <option value="Hann">Hann</option>
       </select>
   </div>
 

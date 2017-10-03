@@ -24,10 +24,11 @@ class InstructorRequest extends FormRequest
     public function rules()
     {
         return [
+        'documento' => 'required',
         'programa_id' => 'required',
         'horario_id' => 'required',
-        'ambiente_formacion_id' => 'required',
-        'user_id' => 'required',
+        'ambiente_id' => 'required',
+        'nombre' => 'required'
         ];
     }
 }

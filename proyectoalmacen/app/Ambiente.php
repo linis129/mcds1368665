@@ -10,6 +10,6 @@ class Ambiente extends Model
 	public $timestamps = false;
 
     protected $fillable = [
-        'nombre', 'codigo', 'estado'
+        'nombre', 'estado'
     ];
 }

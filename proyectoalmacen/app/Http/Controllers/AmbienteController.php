@@ -17,7 +17,7 @@ class AmbienteController extends Controller
   {
     $amb = new Ambiente();
 	  $amb->nombre = $request->get('nombre');
-    $amb->codigo = $request->get('codigo');
+    // $amb->codigo = $request->get('codigo');
     $amb->estado = $request->get('estado');
     $amb->save();
     return redirect('gestion_ambiente')->with('message','Ambiente Registrado Con Exito!');
@@ -45,7 +45,7 @@ class AmbienteController extends Controller
   {
     $amb = Ambiente::find($id);
     $amb->nombre = $request->get('nombre');
-    $amb->codigo = $request->get('codigo');
+    // $amb->codigo = $request->get('codigo');
     $amb->estado = $request->get('estado');
     $amb->save();
       return redirect('gestion_ambiente')->with('message','Ambiente Modificada Con Exito!');

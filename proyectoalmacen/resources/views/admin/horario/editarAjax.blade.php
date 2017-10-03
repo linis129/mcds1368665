@@ -2,9 +2,9 @@
  <form action="{{url('gestion_horario/'.$edit->id)}}" method="post" enctype="multipart/form-data">
  <input type="hidden" name="_token" value="{{ csrf_token()}}">
     <input type="hidden" name="_method" value="PUT">
-<div class="form-group">
+<!-- <div class="form-group">
     <input type="text" class="form-control" name="codigo" placeholder="Digite Codigo" value="{{$edit->codigo }}">
-  </div>
+  </div> -->
   <div class="form-group">
     <input type="time" class="form-control" name="hora_inicial" placeholder="Seleccione Hora Inicial" value="{{ $edit->hora_inicial }}">
   </div>

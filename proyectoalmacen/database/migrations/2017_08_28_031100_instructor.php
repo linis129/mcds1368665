@@ -15,14 +15,16 @@ class Instructor extends Migration
     {
         Schema::create('instructor', function(Blueprint $table){
             $table->increments('id');
+            $table->string('documento');
             $table->integer('programa_id')->unsigned();
             $table->foreign('programa_id')->references('id')->on('programa');
             $table->integer('horario_id')->unsigned();
             $table->foreign('horario_id')->references('id')->on('horario');
             $table->integer('ambiente_id')->unsigned();
             $table->foreign('ambiente_id')->references('id')->on('ambiente_formacion');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            // $table->integer('user_id')->unsigned();
+            // $table->foreign('user_id')->references('id')->on('users');
+            $table->string('nombre');
         });
     }
 

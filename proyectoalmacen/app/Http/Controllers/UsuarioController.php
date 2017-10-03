@@ -62,13 +62,13 @@ class UsuarioController extends Controller
 
 
 
-  public function cargar(Request $request) {
+  // public function cargar(Request $request) {
 
-    $usr = User::where('documento', '=', $request->get('documento'))->get();
+  //   $usr = User::where('documento', '=', $request->get('documento'))->get();
 
-    dd($usr);
+  //   dd($usr);k
 
-  }
+  // }
 
 
 }

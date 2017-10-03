@@ -36,7 +36,7 @@
             <tr>
               <th class="text-center">Id</th>
               <th class="text-center">Nombre</th>
-              <th class="text-center">Codigo</th>
+              <!-- <th class="text-center">Codigo</th> -->
               <th class="text-center">Estado</th>
               <th class="text-center">Acciones</th>
             </tr>
@@ -46,7 +46,7 @@
             <tr>
               <td class="text-center">{{ $row->id }}</td>
               <td class="text-center">{{ $row->nombre }}</td>
-              <td class="text-center">{{ $row->codigo }}</td>
+              <!-- <td class="text-center">{{ $row->codigo }}</td> -->
               <td class="text-center">{{ $row->estado }}</td>
               <td class="text-center">
                 <button class="btn btn-primary editAmbiente" data-UUID="{{ $row->id }}" data-toggle="modal"  data-target="#modal-actualizar">
@@ -85,11 +85,15 @@
               <div class="form-group">
                 <input type="text" class="form-control" name="nombre" placeholder="Digite Nombre">
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input type="text" class="form-control" name="codigo" placeholder="Digite Codigo">
-              </div>
+              </div> -->
               <div class="form-group">
-                  <input type="text" class="form-control" name="estado" placeholder="Digite Estado">
+                  <select name="estado" id="" class="form-control">
+                    <option value="">-- Seleccione Estado --</option>
+                    <option value="Disponible">Disponible</option>
+                    <option value="No Disponible">No Disponible</option>
+                  </select>
               </div>
             </div>
           <div class="modal-footer">

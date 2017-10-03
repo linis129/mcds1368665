@@ -5,9 +5,9 @@
 <div class="form-group">
     <input type="text" class="form-control" name="nombre" placeholder="Digite Nombre" value="{{ $edit->nombre }}">
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <input type="text" class="form-control" name="codigo" placeholder="Digite Codigo" value="{{ $edit->codigo }}">
-  </div>
+  </div> -->
   <div class="form-group">
     <input type="text" class="form-control" name="estado" placeholder="Digite Estado" value="{{$edit->estado}}">
   </div>

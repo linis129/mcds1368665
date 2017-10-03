@@ -15,7 +15,7 @@ class Horario extends Migration
     {
         Schema::create('horario', function(Blueprint $table){
             $table->increments('id');
-            $table->string('codigo');
+            // $table->string('codigo');
             $table->string('hora_inicial');
             $table->string('hora_final');
             $table->string('fecha_inicial');

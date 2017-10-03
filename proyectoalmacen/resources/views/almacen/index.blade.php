@@ -6,7 +6,13 @@
                 <div class="panel-heading">Bienvenido - {{ Auth::user()->name}} {{Auth::apellido}}</div>
 
                 <div class="panel-body">
-                    Almacenista
+                    <!-- <form action="{{ url('codigo') }}" method="post">
+                        <label>Codigo Instructor</label>
+                        <input name="_token" type="hidden" value="{{ csrf_token()}}">
+                            <input autofocus="true" name="documento" type="number">
+                            </input>
+                        </input>
+                    </form> -->
                 </div>
             </div>
         </div>

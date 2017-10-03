@@ -16,7 +16,7 @@ class HorarioController extends Controller
   public function store(HorarioRequest $request)
   {
     $hor = new Horario();
-	   $hor->codigo = $request->get('codigo');
+	   // $hor->codigo = $request->get('codigo');
     $hor->hora_inicial = $request->get('hora_inicial');
     $hor->hora_final = $request->get('hora_final');
     $hor->fecha_inicial = $request->get('fecha_inicial');
@@ -46,7 +46,7 @@ class HorarioController extends Controller
   public function update(HorarioRequest $request, $id)
   {
     $hor = Horario::find($id);
-    $hor->codigo = $request->get('codigo');
+    // $hor->codigo = $request->get('codigo');
     $hor->hora_inicial = $request->get('hora_inicial');
     $hor->hora_final = $request->get('hora_final');
     $hor->fecha_inicial = $request->get('fecha_inicial');

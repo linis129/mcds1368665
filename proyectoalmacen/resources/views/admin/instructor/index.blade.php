@@ -31,6 +31,7 @@
                 <thead>
                     <tr>
                         <th class="text-center">Id</th>
+                        <th class="text-center">Documento</th>
                         <th class="text-center">Programa</th>
                         <th class="text-center">Horarios</th>
                         <th class="text-center">Ambiente</th>
@@ -42,12 +43,13 @@
                     @foreach($query as $row)
                     <tr>
                         <td class="text-center">{{ $row->id}}</td>
+                        <td class="text-center">{{ $row->documento}}</td>
                         <td class="text-center">{{ $row->programa->nombre }}</td>
                         <td class="text-center">{{ $row->horario->hora_inicial}}</td>
                         <td class="text-center">{{ $row->ambiente_formacion->nombre }}</td>
-                        <td class="text-center">{{ $row->user->name}}</td>
+                        <td class="text-center">{{ $row->nombre}}</td>
                         <td class="text-center">
-                            <button class="btn btn-primary editInstructor" data-UUID="{{ $row->id }}" data-IDProg="{{ $row->programa_id }}" data-toggle="modal" data-target="#modal-actualizar">
+                            <button class="btn btn-primary editInstructor" data-UUID="{{ $row->id }}" data-IDProg="{{ $row->programa_id }}" data-IdHora="{{ $row->horario_id }}" data-toggle="modal" data-IdAmbi="{{ $row->ambiente_id }}" data-target="#modal-actualizar">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </button>
                             <form action="{{url('gestion_instructor/'.$row->id)}}" method="post" style="display: inline-block;">
@@ -78,6 +80,9 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
+                            <input type="text" class="form-control" name="documento" placeholder="Digite Documento">
+                        </div>
+                        <div class="form-group">
                             <select name="programa_id" class="form-control">
                                 <option value="">-- Seleccione Programa --</option>
                                 @foreach($programa as $pro)
@@ -102,11 +107,12 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <select name="user_id" class="form-control">
+                            <select name="nombre" class="form-control">
                                 <option value="">-- Seleccione Instructor --</option>
-                                @foreach($usuario as $usr)
-                                <option value="{{ $usr->id }}">{{ $usr->name }}</option>
-                                @endforeach
+                                <option value="Yaneth Mejia Rendon">Yaneth Mejia Rendon</option>
+                                <option value="Oscar Fernando">Oscar Fernando</option>
+                                <option value="Pepito Perez">Pepito Perez"</option>
+                                <option value="Hann">Hann</option>
                             </select>
                         </div>
                     </div>
@@ -141,10 +147,9 @@ $(document).ready(function() {
         var IdProg = $(this).attr('data-IDProg');
         var IdHora= $(this).attr('data-IdHora');
         var IdAmbi= $(this).attr('data-IdAmbi');
-        var IdUsu= $(this).attr('data-IdUsu');
 
-        console.log(IdProg);
-        $.get('http://localhost:8000/gestion_instructor/editarAjax/' + UUID +'/'+ IdProg + '/'+ IdHora + '/' + IdAmbi + '/' + IdUsu,
+        console.log(IdProg, UUID, IdHora, IdAmbi);
+        $.get('http://localhost:8000/gestion_instructor/editarAjax/' + UUID +'/'+ IdProg + '/'+ IdHora + '/' + IdAmbi,
             function(data) {
                 $('#editar').html(data);
                 console.log(data);
