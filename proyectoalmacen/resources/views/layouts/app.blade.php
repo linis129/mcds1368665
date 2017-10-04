@@ -18,6 +18,8 @@
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="adminlte/css/skins/skin-green.min.css">
 
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" > 
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

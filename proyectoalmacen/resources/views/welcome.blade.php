@@ -13,6 +13,8 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
          <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet" type="text/css">
 
+          <link href="{{asset('images/favicon.ico')}}" rel="shortcut icon">
+
         <!-- Styles -->
         <style>
             html, body {
