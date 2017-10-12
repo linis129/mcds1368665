@@ -18,7 +18,7 @@
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="adminlte/css/skins/skin-green.min.css">
 
-    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" > 
+   <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" > 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -177,6 +177,13 @@ desired effect
         <li><a href="{{ url('gestion_horario') }}"><i class="glyphicon glyphicon-time"></i> <span>Horarios</span></a></li>
         <li><a href="{{ url('gestion_ambiente') }}"><i class="glyphicon glyphicon-picture"></i> <span>Ambientes</span></a></li>
         <li><a href="{{ url('gestion_instructor') }}"><i class="glyphicon glyphicon-user"></i> <span>Instructor</span></a></li>
+        <li><a class="btn btn-success btn-flat" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Cerrar Sesion
+                                        </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form></li>
          @elseif(Auth::check() && Auth::user()->rol == "Almacen")
         <li><a href="{{ url('consulta_instructor') }}"><i class="glyphicon glyphicon-user"></i> <span>Consulta Instructor</span></a></li>
           <li class="active"><a href="{{ url('consulta_ambiente') }}"><i class="glyphicon glyphicon-picture"></i> <span>Consulta Ambiente Formacion</span></a></li>
@@ -213,10 +220,10 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      2017
+     
     </div>
     <!-- Default to the left -->
-    <strong>MCDS</strong> 
+    <strong></strong> 
   </footer>
 
   <!-- Control Sidebar -->
@@ -274,5 +281,7 @@ desired effect
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+
+     
 </body>
 </html>

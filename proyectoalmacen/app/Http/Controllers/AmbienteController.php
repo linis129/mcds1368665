@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Ambiente;
 use App\Http\Requests\AmbienteRequest;
 
+use Barryvdh\DomPDF\Facade as PDF;
+
 class AmbienteController extends Controller
 {
     public function index(){
@@ -41,6 +43,13 @@ class AmbienteController extends Controller
     return view('admin.ambiente.editarAjax', compact('editar'));
 
   }
+
+   public function pdf() {
+        $amb = Ambiente::all();
+        $pdf = PDF::loadView('admin.ambiente.pdf', compact('amb'));
+        return $pdf->download('admin.ambiente.pdf');
+    }
+
   public function update(AmbienteRequest $request, $id)
   {
     $amb = Ambiente::find($id);

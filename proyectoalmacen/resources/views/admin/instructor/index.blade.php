@@ -10,6 +10,18 @@
             <hr>
             <br>
         </div>
+
+        @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
         <!-- Alert Registro -->
         @if (Session::has('message'))
         <div class="alert alert-info alert-dismissible" role="alert">
@@ -20,6 +32,7 @@
         <!-- Box Crear -->
         <div class="col">
             <button class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Crear Instructor</button>
+            <a class="btn btn-default" href="{{ url('pdf2') }}"> Generar Reporte </a>
             <br>
             <br>
             <br>
@@ -42,10 +55,11 @@
                 <tbody>
                     @foreach($query as $row)
                     <tr>
+                       
                         <td class="text-center">{{ $row->id}}</td>
                         <td class="text-center">{{ $row->documento}}</td>
                         <td class="text-center">{{ $row->programa->nombre }}</td>
-                        <td class="text-center">{{ $row->horario->hora_inicial}}</td>
+                        <td class="text-center">{{  Carbon\Carbon::parse ($row->horario->hora_inicial)->format('h:i A')}}</td>
                         <td class="text-center">{{ $row->ambiente_formacion->nombre }}</td>
                         <td class="text-center">{{ $row->nombre}}</td>
                         <td class="text-center">
@@ -109,10 +123,14 @@
                         <div class="form-group">
                             <select name="nombre" class="form-control">
                                 <option value="">-- Seleccione Instructor --</option>
-                                <option value="Yaneth Mejia Rendon">Yaneth Mejia Rendon</option>
-                                <option value="Oscar Fernando">Oscar Fernando</option>
-                                <option value="Pepito Perez">Pepito Perez"</option>
-                                <option value="Hann">Hann</option>
+                               <option value="Yaneth Mejia Rendon">Yaneth Mejia Rendon</option>
+                                      <option value="Oscar Fernando">Oscar Fernando</option>
+                                      <option value="Consuelo Garcia">Consuelo Garcia</option>
+                                      <option value="Cristian Toro">Cristian Toro</option>
+                                      <option value="Andres Felipe Henao">Andres Felipe Henao</option>
+                                      <option value="Alirio Londoño">Alirio Londoño</option>
+                                      <option value="Luisa Fernanda Castaño">Luisa Fernanda Castaño</option>
+                                      <option value="Julian Salgado">Julian Salgado</option>
                             </select>
                         </div>
                     </div>
@@ -138,6 +156,7 @@
         </div>
     </div>
 </div>
+ <script src="{{ asset('js/app.js') }}"></script>
 <script>
 $(document).ready(function() {
 

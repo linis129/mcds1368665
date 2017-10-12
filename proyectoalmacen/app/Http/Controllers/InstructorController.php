@@ -9,6 +9,7 @@ use App\Programa;
 use App\Horario;
 // use App\User;
 use App\Http\Requests\InstructorRequest;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class InstructorController extends Controller
 {
@@ -51,7 +52,7 @@ class InstructorController extends Controller
   public function editarAjax($id, $IdProg, $IdHora, $IdAmbi){
 
     $editar = Instructor::where('id', '=', $id)->get();
-    $pro = Programa::where('id','!=', $IdProg)->get();
+    $pro = Programa::all();
     $hor = Horario::where('id','!=', $IdHora)->get();
     $amb = Ambiente::where('id','!=', $IdAmbi)->get();
     // $use = User::where('id','!=', $IdUsu)->get();
@@ -77,6 +78,8 @@ class InstructorController extends Controller
     $inst->nombre = $request->get('nombre');
     $inst->save();
       return redirect('gestion_instructor')->with('message','Instructor Modificada Con Exito!');
+
+
   }
 
     public function cargar(Request $request) {
@@ -88,5 +91,11 @@ class InstructorController extends Controller
     return view('admin.instructor.consulta')->with('usr', $usr);
 
   }
+
+      public function pdf() {
+        $usr = Instructor::all();
+        $pdf = PDF::loadView('admin.instructor.pdf', compact('usr'));
+        return $pdf->download('admin.instructor.pdf');
+    }
 
 }

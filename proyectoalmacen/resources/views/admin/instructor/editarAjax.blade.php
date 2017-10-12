@@ -4,11 +4,11 @@
 
     <input type="hidden" name="_method" value="PUT">
     <div class="form-group">
-        <input type="text" disabled="disabled" value="{{ $edit->documento }}" name="documento" class="form-control">
+        <input type="text" readonly="readonly" value="{{ $edit->documento }}" name="documento" class="form-control">
     </div>
     <div class="form-group">
         <select name="programa_id" class="form-control">
-            <option value="">{{ $edit->programa->nombre  }}</option>
+            <option value="{{ $edit->programa->id }}">{{ $edit->programa->nombre  }}</option>
             @foreach($pro as $prog)
             <option value="{{ $prog->id }}">{{ $prog->nombre }}</option>
             @endforeach
@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
         <select name="horario_id" class="form-control">
-            <option value="">{{ $edit->horario->hora_inicial }}</option>
+            <option value="{{ $edit->horario->id }}">{{ $edit->horario->hora_inicial }}</option>
             @foreach($hor as $hora)
             <option value="{{ $hora->id }}">{{ $hora->hora_inicial }}</option>
             @endforeach
@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
         <select name="ambiente_id" class="form-control">
-            <option value="">{{ $edit->ambiente_formacion->nombre}}</option>
+            <option value="{{ $edit->ambiente_formacion->id }}">{{ $edit->ambiente_formacion->nombre}}</option>
             @foreach($amb as $ambi)
             <option value="{{ $ambi->id }}">{{ $ambi->nombre}}</option>
             @endforeach
@@ -32,10 +32,18 @@
     </div>
   <div class="form-group">
       <select name="nombre" class="form-control">
+        <option value="">-- Seleccione Instructor --</option>
         <option value="Yaneth Mejia Rendon">Yaneth Mejia Rendon</option>
         <option value="Oscar Fernando">Oscar Fernando</option>
-        <option value="Pepito Perez">Pepito Perez"</option>
-        <option value="Hann">Hann</option>
+        <option value="Consuelo Garcia">Consuelo Garcia</option>
+        <option value="Cristian Toro">Cristian Toro</option>
+        <option value="Andres Felipe Henao">Andres Felipe Henao</option>
+        <option value="Alirio Londoño">Alirio Londoño</option>
+        <option value="Luisa Fernanda Castaño">Luisa Fernanda Castaño</option>
+        <option value="Julian Salgado">Julian Salgado</option>
+
+
+
       </select>
   </div>
 

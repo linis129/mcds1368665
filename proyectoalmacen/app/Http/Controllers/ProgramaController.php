@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Programa;
 use App\Http\Requests\ProgramaRequest;
+use Barryvdh\DomPDF\Facade as PDF;
 
 
 class ProgramaController extends Controller
@@ -51,4 +52,9 @@ class ProgramaController extends Controller
     $pro->save();
       return redirect('gestion_programas')->with('message','Programa Modificada Con Exito!');
   }
+        public function pdf() {
+        $pro = Programa::all();
+        $pdf = PDF::loadView('admin.programas.pdf', compact('pro'));
+        return $pdf->download('admin.programas.pdf');
+    }
 }

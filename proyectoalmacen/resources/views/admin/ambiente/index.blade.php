@@ -14,6 +14,15 @@
         <hr>
         <br>
       </div>
+         @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
       <!-- Alert Registro -->
       @if (Session::has('message'))
@@ -26,6 +35,7 @@
       <!-- Box Crear -->
       <div class="col">
         <button class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Crear Ambiente</button>
+        <a class="btn btn-default" href="{{ url('pdf') }}"> Generar Reporte </a>
         <br><br><br>
       </div>
       <!-- Box Table -->
@@ -80,10 +90,38 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Registrar Ambiente</h4>
+           
           </div>
-          <div class="modal-body">
-              <div class="form-group">
-                <input type="text" class="form-control" name="nombre" placeholder="Digite Nombre">
+          <div class="form-group">
+                  <select name="nombre"  class="form-control">
+                    <option value="">-- Seleccione Ambiente --</option>
+                    <option value="Apyo 1">Apoyo 1</option>
+                    <option value="Sistemas 1">Sistemas 1</option>
+                    <option value="Sistemas 2">Sistemas 2</option>
+                    <option value="Sistemas 3">Sistemas 3</option>
+                    <option value="CAD">CAD</option>
+                    <option value="Auditorio">Auditorio</option>
+                    <option value="Automotriz">Automotriz</option>
+                    <option value="Confeccion">Confeccion</option>
+                    <option value="Dibujo">Dibujo</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Electricidad 1">Electricidad 1</option>
+                    <option value="Electricidad 2">Electricidad 2</option>
+                    <option value="Electricidad 3">Electricidad 3</option>
+                    <option value="Electricidad 4">Electricidad 4</option>
+                    <option value="Maderas">Maderas</option>
+                    <option value="Mantenimiento">Mantenimiento</option>
+                    <option value="Mecanizado">Mecanizado</option>
+                    <option value="Metalografia">Metalografia</option>
+                    <option value="Salud Ocupacional">Salud Ocupacional</option>
+                    <option value="Soldadura">Soldadura</option>
+                    <option value="Redes para Gas">Redes para Gas</option>
+                    <option value="Refrigeracion">Refrigeracion</option>
+                    <option value="Motos">Motos</option>
+                    <option value="Certificacion Gas">Certificacion Gas</option>
+
+
+                  </select>
               </div>
               <!-- <div class="form-group">
                 <input type="text" class="form-control" name="codigo" placeholder="Digite Codigo">
@@ -120,6 +158,14 @@
     </div>
 
   </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+    $(document).ready(function() {
+        $(".select-doc").hide();
+    });
+    </script>
 
   <script>
     $(document).ready(function(){

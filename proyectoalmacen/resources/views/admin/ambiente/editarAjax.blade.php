@@ -8,9 +8,15 @@
   <!-- <div class="form-group">
     <input type="text" class="form-control" name="codigo" placeholder="Digite Codigo" value="{{ $edit->codigo }}">
   </div> -->
-  <div class="form-group">
-    <input type="text" class="form-control" name="estado" placeholder="Digite Estado" value="{{$edit->estado}}">
-  </div>
+
+   <div class="form-group">
+                  <select name="estado" id="" class="form-control">
+                    <option value="">-- Seleccione Estado --</option>
+                    <option value="Disponible">Disponible</option>
+                    <option value="No Disponible">No Disponible</option>
+                  </select>
+              </div>
+
   <div class="form-group">
     <input type="hidden" class="form-control" name="id" value="{{ $edit->id }}">
 </div>

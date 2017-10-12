@@ -54,3 +54,9 @@ Route::get('codigo', function() {
 });
 
 Route::post('codigo', 'instructorController@cargar');
+
+Route::get('pdf', 'AmbienteController@pdf');
+
+Route::get('pdf2', 'InstructorController@pdf');
+
+Route::get('pdf3', 'ProgramaController@pdf');

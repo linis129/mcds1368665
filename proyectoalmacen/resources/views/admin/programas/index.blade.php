@@ -14,6 +14,15 @@
         <hr>
         <br>
       </div>
+         @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
       <!-- Alert Registro -->
       @if (Session::has('message'))
@@ -26,6 +35,7 @@
       <!-- Box Crear -->
       <div class="col">
         <button class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Crear Programa</button>
+        <a class="btn btn-default" href="{{ url('pdf3') }}"> Generar Reporte </a>
         <br><br><br>
       </div>
       <!-- Box Table -->
@@ -47,7 +57,7 @@
               <td class="text-center">{{ $row->id }}</td>
               <td class="text-center">{{ $row->nombre }}</td>
               <td class="text-center">{{ $row->codigo }}</td>
-              <td class="text-center">{{ $row->fecha_vencimiento }}</td>
+              <td class="text-center">{{ Carbon\Carbon::parse($row->fecha_vencimiento)->format('d/m/Y')}}</td>
               <td class="text-center">
                 <button class="btn btn-primary editPrograma" data-UUID="{{ $row->id }}" data-toggle="modal"  data-target="#modal-actualizar">
                   <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -116,6 +126,7 @@
     </div>
 
   </div>
+   <script src="{{ asset('js/app.js') }}"></script>
   <script>
     $(document).ready(function(){
 

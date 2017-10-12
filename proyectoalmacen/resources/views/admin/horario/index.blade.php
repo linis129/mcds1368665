@@ -14,6 +14,15 @@
         <hr>
         <br>
       </div>
+         @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
       <!-- Alert Registro -->
       @if (Session::has('message'))
@@ -48,10 +57,10 @@
             <tr>
               <td class="text-center">{{ $row->id }}</td>
               <!-- <td class="text-center">{{ $row->codigo }}</td> -->
-              <td class="text-center">{{ $row->hora_inicial }}</td>
-              <td class="text-center">{{ $row->hora_final }}</td>
-              <td class="text-center">{{ $row->fecha_inicial }}</td>
-              <td class="text-center">{{ $row->fecha_final }}</td>
+              <td class="text-center">{{ Carbon\Carbon::parse($row->hora_inicial)->format('h:i A') }}</td>
+              <td class="text-center">{{ Carbon\Carbon::parse($row->hora_fnal)->format('h:i A') }}</td>
+              <td class="text-center">{{ Carbon\Carbon::parse($row->fecha_inicial)->format('d/m/Y') }}</td>
+              <td class="text-center">{{ Carbon\Carbon::parse($row->fecha_final)->format('d/m/Y') }}</td>
               <td class="text-center">
                 <button class="btn btn-primary editHorario" data-UUID="{{ $row->id }}" data-toggle="modal"  data-target="#modal-actualizar">
                   <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -126,6 +135,7 @@
     </div>
 
   </div>
+   <script src="{{ asset('js/app.js') }}"></script>
   <script>
     $(document).ready(function(){
 

@@ -15,6 +15,41 @@
 
           <link href="{{asset('images/favicon.ico')}}" rel="shortcut icon">
 
+
+            <!-- Skitter Styles -->
+  <link   href="{{asset('slider/dist/skitter.css')}}"    type="text/css" media="all" rel="stylesheet" />
+  
+  <!-- Skitter JS -->
+  <script type="text/javascript" language="javascript" src="slider/js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" language="javascript" src="slider/js/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" language="javascript" src="slider/dist/jquery.skitter.min.js"></script>
+  
+  <!-- Init Skitter -->
+  <script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+
+
+      $('.skitter-large').skitter({
+        numbers: true,
+        suffix: '-small',
+        width: 1024,
+        dots: false
+      });
+
+     
+
+
+
+    });
+
+
+  </script>
+
+
+
+
+
+
         <!-- Styles -->
         <style>
             html, body {
@@ -96,6 +131,22 @@
                     ALMACEN
                 </div>
 
+
+                    <div id="content">
+      <div class="skitter-large-box">
+        <div class="skitter skitter-large">
+          <ul>
+            <li><a href="#cube"><img src="images/s1.jpg" class="cubeHide" /></a></li>
+
+            <li><a href="#cubeRandom"><img src="images/s2.jpg" class="cubeSize" /></a></li>
+
+            <li><a href="#block"><img src="images/s3.jpg" class="cubeShow" /></a></li>
+
+            <li><a href="#cubeStop"><img src="images/s4.jpg" class="cube" /></a></li> 
+          </ul>
+        </div>
+      </div>
+    </div>
                 
             </div>
         </div>
